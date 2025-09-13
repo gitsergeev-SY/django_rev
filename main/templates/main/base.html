@@ -12,27 +12,28 @@
     {% comment %}bootstrap{% endcomment %}
     {% comment %} <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" /> {% endcomment %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}" />
   </head>
   <body>
     <header class="header sticky-top d-flex align-items-center">
       <div class="header-logo">
-        <img src="{% static 'img/rev.png' %}" alt="" width="100" />
+        <img src="{% static 'main/img/rev.png' %}" alt="" width="60" style="border-radius: 50%; border: solid 2px #000;" />
+        <span>SSY</span>
       </div>
-      <div class="search">
+      {% comment %} <div class="search">
         <form class="search_form" action="" id="search-form" style="display: none;"></form>
         <input type="text" name="q" class="form_input" placeholder="Search" />
-        <button type="submit" class="btnforsearch"></button>
-      </div>
+        <button type="submit" class="btnforsearch">submit</button>
+      </div> {% endcomment %}
       <div class="header-nav d-flex gap-4">
-        <a class="h-profile" href="#"><img src="{% static 'img/profile.png' %}" alt="" width="100" /></a>
-        <a class="h-profile" href="#"><img src="{% static 'img/cart.png' %}" alt="" /></a>
+        <a class="h-profile" href="#"><img src="{% static 'main/img/profile.png' %}" alt="" width="30" style="border-radius: 50%; margin-top: 40px;" /></a>
+        <a class="h-profile" href="#"><img src="{% static 'main/img/shop.png' %}" width="30" style="margin-top: 40px;" alt="" /></a>
         <div class="forsearch">
-          <a class="toggle-search" id="toggle-search" href="#"><img src="{% static 'img/search.png' %}" alt="" /></a>
+          <a class="toggle-search" id="toggle-search" href="#"><img src="{% static 'main/img/search.png' %}" width="30" style="margin-top: 40px;" alt="" /></a>
           <div class="search-popup" id="search-popup" style="display: none;">
             <form action="" class="search-form" method="GET" id="search-form">
               <div class="input-container">
-                <input type="text" class="form_input" name="q" placeholder="Seadch" />
+                <input type="text" class="form_input" name="q" placeholder="Search" />
                 <button type="submit" class="btnforsearch"></button>
               </div>
             </form>
