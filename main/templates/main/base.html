@@ -16,10 +16,10 @@
   </head>
   <body>
     <header class="header sticky-top d-flex align-items-center">
-      <div class="header-logo">
+      <a class="header-logo" href="{% url 'main:catalog' %}">
         <img src="{% static 'main/img/rev.png' %}" alt="" width="60" style="border-radius: 50%; border: solid 2px #000;" />
         <span>SSY</span>
-      </div>
+      </a>
       {% comment %} <div class="search">
         <form class="search_form" action="" id="search-form" style="display: none;"></form>
         <input type="text" name="q" class="form_input" placeholder="Search" />
