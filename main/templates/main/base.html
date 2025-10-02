@@ -27,7 +27,7 @@
       </div> {% endcomment %}
       <div class="header-nav d-flex gap-4">
         <a class="h-profile" href="#"><img src="{% static 'main/img/profile.png' %}" alt="" width="30" style="border-radius: 50%; margin-top: 40px;" /></a>
-        <a class="h-profile" href="#"><img src="{% static 'main/img/shop.png' %}" width="30" style="margin-top: 40px;" alt="" /></a>
+        <a class="h-profile" href="{% url 'cart:cart_detail' %}"><img src="{% static 'main/img/shop.png' %}" width="30" style="margin-top: 40px;" alt="" /></a>
         <div class="forsearch">
           <a class="toggle-search" id="toggle-search" href="#"><img src="{% static 'main/img/search.png' %}" width="30" style="margin-top: 40px;" alt="" /></a>
           <div class="search-popup" id="search-popup" style="display: none;">
