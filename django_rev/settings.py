@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'cart',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -75,13 +79,41 @@ WSGI_APPLICATION = 'django_rev.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+# робимо заміну sqlite на postgresql 06.10.2025
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    #   'default': {
+    #      'ENGINE': 'django.db.backends.sqlite3',
+    #      'NAME': BASE_DIR / 'db.sqlite3',
+    #   }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'HOST': os.getenv('POSTGRES_HOST', 'localhost'),
+    #     'PORT': os.getenv('POSTGRES_PORT', 5432),
+    #     'USER': os.getenv('POSTGRES_USER'),
+    #     'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+    #     'NAME': os.getenv('POSTGRES_DB', 'db01'),
+    #     'ATOMIC_REQUESTS': True,
+    # }
+      
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'django_rev',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'django_rev',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
+    
+        'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'dj_rev',
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'localhost',
+        'PORT': '5432'
     }
-}
+} 
 
 
 # Password validation
@@ -119,14 +151,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
-STATICFILES_DIRS = [
-  os.path.join('BASE_DIR', 'static')
-] 
+STATICFILES_DIRS = [BASE_DIR , 'static']
+# STATICFILES_DIRS = [
+#   os.path.join('BASE_DIR', 'static')
+# ]
+
+
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join('BASE_DIR', 'media')
 
 CART_SESSION_ID = 'cart'
+
+AUTH_USER_MODEL = 'users.User'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
